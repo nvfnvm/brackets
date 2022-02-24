@@ -1,3 +1,14 @@
 module.exports = function check(str, bracketsConfig) {
-  // your solution
-}
+  let repairString = str;
+  while(str) {
+    bracketsConfig.forEach(el => {
+      str = str.replace(el.join(""), "");
+    });
+    
+    if(str === repairString) {
+      return false;
+    }
+    repairString = str;
+  }
+  return true;
+};
